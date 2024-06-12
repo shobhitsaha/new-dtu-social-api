@@ -45,7 +45,11 @@ app.use(cors(corsOptions));
 
 
 
-app.use(cookieParser());
+// app.use(cookieParser());
+app.use(cookieParser({
+  sameSite: 'None', // Set SameSite attribute to None
+  secure: true, // Ensure cookies are only sent over HTTPS
+}));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
