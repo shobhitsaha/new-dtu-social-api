@@ -17,21 +17,28 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 
+// app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 cloudinary.config({
   cloud_name: "dcixsckwx",
   api_key: "776976824986822",
   api_secret: "BWmEgvp4rp_LiUbYDHOPeWsdsJg",
 });
 
+//app.use(cors())
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
   next();
 });
-// app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors())
+
+
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
