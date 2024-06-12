@@ -26,16 +26,16 @@ cloudinary.config({
   api_secret: "BWmEgvp4rp_LiUbYDHOPeWsdsJg",
 });
 
-//app.use(cors())
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", true);
-  next();
-});
+app.use(cors())
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//   })
+// );
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Credentials", true);
+//   next();
+// });
 
 
 
