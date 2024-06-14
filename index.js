@@ -36,10 +36,22 @@ cloudinary.config({
 //   res.header("Access-Control-Allow-Credentials", true);
 //   next();
 // });
+const allowedOrigins = ['https://new-dtu-social.onrender.com', 'https://main--new-dtu-social.netlify.app/']; // Add more origins as needed
+
 const corsOptions = {
-  origin: 'https://new-dtu-social.onrender.com',
-  credentials: true,
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Allow credentials
 };
+// const corsOptions = {
+//   origin: 'https://new-dtu-social.onrender.com',
+//   credentials: true,
+// };
 
 app.use(cors(corsOptions));
 
