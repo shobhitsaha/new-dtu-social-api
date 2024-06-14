@@ -36,7 +36,7 @@ cloudinary.config({
 //   res.header("Access-Control-Allow-Credentials", true);
 //   next();
 // });
-const allowedOrigins = ['https://new-dtu-social.onrender.com', 'https://main--new-dtu-social.netlify.app/']; // Add more origins as needed
+const allowedOrigins = ['https://new-dtu-social.onrender.com', 'https://main--new-dtu-social.netlify.app']; // Add more origins as needed
 
 const corsOptions = {
   origin: function (origin, callback) {
