@@ -37,7 +37,7 @@ export const addPost = (req, res) => {
     const q =
       "INSERT INTO posts(descr, img, createdat, userid) VALUES ($1,$2,$3,$4)";
     const values = [
-      req.body.descr,
+      req.body.desc,
       req.body.img,
       moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
       userInfo.id,
